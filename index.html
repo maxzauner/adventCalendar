@@ -210,7 +210,7 @@
                         console.log(isDoorOne);
 
                         
-                        if ($(this).hasClass("img") && !$(this).children(".door").hasClass("open") && !isDoorOne) {
+                        if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open") && !isDoorOne) {
 
                                       
                             var bg = $(this).css('background-image');
@@ -260,7 +260,7 @@
                             captionText.innerHTML = words[index];
                             modal.style.display = "block";
                             $('.modal-content').css('display', 'none');
-                        } else if(isMosaik) {
+                        } else if(adventwindow <= day && isMosaik) {
                             $('.mosaik').css('display', 'block');                             
                             captionText.innerHTML = words[index];
                             modal.style.display = "block";
