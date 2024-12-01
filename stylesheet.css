@@ -75,8 +75,11 @@ transition: all 0.4s ease-in-out;
     font-size: 10px;
 }
 
-.four {
-    background: url("img/body.jpg") center top;
+
+
+
+.two {
+    background: url("img/NetflixDate.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -84,9 +87,45 @@ transition: all 0.4s ease-in-out;
     height:130px;
 }
 
+.three {
+    background: url("img/Vanillekipferl.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:230px;
+}
+
+
+.four {
+    background: url("img/Meme01.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
+.five {
+    background: url("img/supperDate.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
 
 .six {
-    background: url("img/nikolaus.jpg") center top;
+    background: url("img/Nikolaus.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
+.eight {
+    background: url("img/Canada.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -96,9 +135,8 @@ transition: all 0.4s ease-in-out;
 
 
 
-
-.seven {
-    background: url("img/6.jpg") center top;
+.eleven {
+    background: url("img/Crossword.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -108,27 +146,19 @@ transition: all 0.4s ease-in-out;
 
 
 
-.nine {
-    background: url("img/badekugel.jpg") center top;
-    background-size:cover;  
-    clear:both;
-    margin: 20px auto 0 auto;
-    width: 130px;
-    height:130px;
-}
-
-
-.ten {
-    background: url("img/cartoon.png") center top;
-    background-size:cover;  
-    clear:both;
-    margin: 20px auto 0 auto;
-    width: 130px;
-    height:130px;
-}
 
 .twelve {
-    background: url("img/schokoapfel.jpg") center top;
+    background: url("img/HiddenGames.jpg") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
+
+.fourteen {
+    background: url("img/Places.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -150,7 +180,7 @@ transition: all 0.4s ease-in-out;
 
 
 .sixteen {
-    background: url("img/Kreuzwortraetsel.png") center top;
+    background: url("img/GermanPoutine.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -158,10 +188,17 @@ transition: all 0.4s ease-in-out;
     height:130px;
 }
 
-
+.seventeen {
+    background: url("img/Poem.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
 
 .eightteen {
-    background: url("img/gluehwein.jpg") center top;
+    background: url("img/Meme02.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -171,12 +208,22 @@ transition: all 0.4s ease-in-out;
 
 
 
+.twentyone {
+    background: url("img/IceCream.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
 
-
-
-
-.seven .revealed {
-    color: darkred;
+.twentythree {
+    background: url("img/Meme03.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
 }
 
 
@@ -191,7 +238,7 @@ transition: all 0.4s ease-in-out;
 
 
 ul li:last-child {
-background: url("img/Kalender.jpg") center top;
+background: url("img/Christmas.png") center top;
 background-size:cover;  
 display:block;
 clear:both;

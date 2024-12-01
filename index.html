@@ -18,55 +18,59 @@
     -->
     <h1>Naomies advent<br>calendar</h1>
 
-    
+    <!--
     <button style="background-color: lightblue; width: 20%; position: relative; height: 10vh; margin-left: auto; margin-right: auto;" class="btn">Hier Klicken um alles zu öffnen</button>
-
     <button style="background-color: lightblue; width: 20%; position: relative; height: 10vh; margin-left: auto; margin-right: auto;" class="btnLogIn">Login</button>
+
+    -->
 
 
     <ul>
 
         
-    <li class="img one"><div class="door">1</div></li>
-    <li class="two"><div class="door">2</div></li>
-    <li>
-        <div class="door three">3</div>
-    </li>
+    <li class="one"><div class="door">1</div></li>
+    <li class="img two"><div class="door">2</div></li>
+    <li class="img three"><div class="door">3</div></li>
 
         
 
 
     <li class="img four"><div class="door">4</div></li>
-    <li><div class="door five">5</div></li>
+    <li class="img five"><div class="door">5</div></li>
 
 
     <li class="img six"><div class="door">6</div></li>
-    <li class="img seven"><div class="door 7">7</div></li>
-    <li class="eight"><div class="door 8">8</div></li>
-    <li class="img nine"><div class="door">9</div></li>
-    <li class="img ten"><div class="door">10</div></li>
-    <li><div class="door">11</div></li>
+    <li class="seven"><div class="door 7">7</div></li>
+    <li class="img eight"><div class="door 8">8</div></li>
+    <li class="nine"><div class="door">9</div></li>
+    <li class="ten"><div class="door">10</div>
+        <div style="font-size: 19.5px;" class="revealed">
+            To get ready for german christmas
+            <a style="color: #F8B229;" target="_blank" href="https://open.spotify.com/playlist/5SRTxUBKTTSXbGYQC5uqkd?si=028aff3c6e6b4723" title=""> 🎶 </a>
+        </div>
+    </li>
+    <li class="img eleven"><div class="door">11</div></li>
 
     <li class="btnLogIn twelve"><div class="door">12</div></li>
 
-    <li><div class="door">13</div></li>
-    <li class="fourteen"><div class="door 14">14</div></li>
+    <li class="mosaikDoor"><div class="door">13</div></li>
+    <li class="img fourteen"><div class="door 14">14</div></li>
 
-    <li class="img fifeteen">
+    <li class="fifeteen">
         <div class="door">15</div>
         <div style="font-size: 19.5px;" class="revealed">
-            <a style="color: #F8B229;" target="_blank" href="https://www.jigsawplanet.com/?rc=play&pid=3dfe53a43657" title="TV-Abend">🧩</a>
+            <a style="color: #F8B229;" target="_blank" href="https://www.jigsawplanet.com/?rc=play&pid=3dfe53a43657" title="TV-Abend">Puzzle 🧩</a>
         </div>
     </li>
 
     <li class="img sixteen"><div class="door">16</div></li>
-    <li><div class="door">17</div></li>
+    <li class="img seventeen"><div class="door">17</div></li>
     <li class="img eightteen"><div class="door">18</div></li>
     <li class="nineteen"><div class="door">19</div></li>
-    <li class="video"><div class="door">20</div></li>
-    <li><div class="door">21</div></li>
+    <li class="twenty"><div class="door">20</div></li>
+    <li class="img twentyone"><div class="door">21</div></li>
     <li><div class="door">22</div></li>
-    <li><div class="door">23</div></li>
+    <li class="img twentythree"><div class="door">23</div></li>
     <li class="img"><div class="door">24</div></li>
     </ul>
 
@@ -75,11 +79,11 @@
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
-        <div class="countdown">
-            <br><iframe src="https://mosaically.com/embed/0fece61f-3c5b-4aaa-806b-222578326a6c" scrolling="no" width="100%" height="480" frameBorder="0" allowfullscreen></iframe><!--REMOVING THE FOLLOWING CREDIT IS A VIOLATION OF YOUR TERMS OF USE--><br></div>
-        <div class="" style="left:0; width:50%; height:0; position:relative; padding-bottom:25%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/6223248" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="Til we see us again"></iframe></div>    
+        <div class="mosaik">
+            <br><iframe src="https://mosaically.com/embed/0fece61f-3c5b-4aaa-806b-222578326a6c" scrolling="no" width="100%" height="700" frameBorder="0" allowfullscreen></iframe><!--REMOVING THE FOLLOWING CREDIT IS A VIOLATION OF YOUR TERMS OF USE--><br>
+        </div>
+        <div class="countdown" style="left:0; width:50%; height:0; position:relative; padding-bottom:30%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/6224367" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="d"></iframe></div>
         <div id="caption"></div>
-        <button class="downloadBtn">Download</button>
     </div>
 
 
@@ -104,27 +108,6 @@
                 //("li").each($(this).children(".door").addClass("open"));  
             });
 
-            /*
-            $( ".btnLogIn" ).click(function() {
-                var text;
-                var password = prompt("password:");
-
-                if (password == null || password == "") {
-                    console.log('Input abgebrochen/leer');
-                }
-                else{
-                    if(password == "sube"){
-                        alert("Eingeloggt");
-
-                    }
-                    else{
-                        alert("Login failed");
-                        $(this).removeClass("open");
-                        document.getElementById("myModal").style.display = "none";
-                    }
-                }
-            });
-            */
 
             $( ".downloadBtn" ).click(function() {
 
@@ -151,15 +134,14 @@
 
 
             var words = [
-                        "Einladung zum Pizza Essen 💸👨‍🌾 -> 🍕 ", "Netflix Watchparty 🍿", "German christmas cookies 🍪", "😆", "Supper date", 
+                        "Until we see each other again", "Netflix Watchparty 🍿", "German christmas cookies 🍪", "🎃", "Supper date", 
                         "Happy Nikolaus Tag 🎅", "Special Candle ;)", 
                         "🇩🇪/🇨🇦", "Voucher: Sexy Pic 😉", 
-                        "To get ready for german christmas 🎶", "", "", 
-                        "put together your own ice cream 🍨", 
-                        "Our places 🌏❤️", "", "German Poutine 🍟", 
+                        "", "Quiz ✍️", "Game date night 🕵️", 
+                        "📷", "Our places 🌏❤️", "", "German Poutine 🍟", 
                         "Pour ma belle blonde", 
-                        "💚", "Our Time", "Special dices ;)", 
-                        "Falls die Fußcreme nicht genug wärmt 🤗", "Heute gibts mal was für deine 👄", "Gutschein zum Plätzle/Cookies backen 🍪", "Frohe Weihnachten ❤️"
+                        "", "Ask me on Whatsapp for it ;)", "Dices 🔥🎲", 
+                        "🍨", "Something to get you over the 97% ;)", "", "Frohe Weihnachten ❤️"
                         ];
 
                         
@@ -218,9 +200,11 @@
 
                         var isLoginBtn = $(this).hasClass("btnLogIn");
                         var isDoorOne = $(this).hasClass("one");
+                        var isMosaik = $(this).hasClass("mosaikDoor");
 
                         $('.modal-content').css('display', 'block');
                         $('.countdown').css('display', 'none');
+                        $('.mosaik').css('display', 'none');
                         
 
                         console.log(isDoorOne);
@@ -242,8 +226,6 @@
                             modal.style.display = "block";
 
                             
-                        } else if($(this).hasClass("video") && !$(this).children(".door").hasClass("open")) {
-                            window.open("https://open.spotify.com/playlist/5SRTxUBKTTSXbGYQC5uqkd");
                         } else if(isLoginBtn) {
 
                             var text;
@@ -254,7 +236,7 @@
                             }
                             else{
                                 if(password == "sube"){
-                                    alert("Eingeloggt");
+                                    alert("Approved");
 
                                     var bg = $(this).css('background-image');
                                     var cleanup = /\"|\'|\)/g;
@@ -278,7 +260,11 @@
                             captionText.innerHTML = words[index];
                             modal.style.display = "block";
                             $('.modal-content').css('display', 'none');
-
+                        } else if(isMosaik) {
+                            $('.mosaik').css('display', 'block');                             
+                            captionText.innerHTML = words[index];
+                            modal.style.display = "block";
+                            $('.modal-content').css('display', 'none');
                         }
 
 
