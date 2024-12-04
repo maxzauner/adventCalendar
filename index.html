@@ -155,7 +155,7 @@
             var timeDelay = 200;
 
 
-            //day = 24;
+//           day = 24;
 
             if(month === 12) {
             // Loop through each calendar window
@@ -165,6 +165,10 @@
 
 
                     // Open past windows
+                    if(adventwindow < day) {
+                        var door = item.children(".door");
+                        door.addClass("open");
+                    }
                     
 
                     // timeout offset for past window opening animation
@@ -205,10 +209,6 @@
                         $('.modal-content').css('display', 'block');
                         $('.countdown').css('display', 'none');
                         $('.mosaik').css('display', 'none');
-                        
-
-                        console.log(isDoorOne);
-
                         
                         if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open") && !isDoorOne) {
 
@@ -268,8 +268,9 @@
                         }
 
 
-                        if(adventwindow <= day && !isLoginBtn) {
+                        if(adventwindow <= day) {
                             $(this).children(".door").toggleClass("open");
+                            console.log("öffnene");
                         
 
 
