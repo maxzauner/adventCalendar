@@ -179,15 +179,6 @@ transition: all 0.4s ease-in-out;
 */
 
 
-.sixteen {
-    background: url("img/GermanPoutine.png") center top;
-    background-size:cover;  
-    clear:both;
-    margin: 20px auto 0 auto;
-    width: 130px;
-    height:130px;
-}
-
 .seventeen {
     background: url("img/Poem.png") center top;
     background-size:cover;  
@@ -206,7 +197,14 @@ transition: all 0.4s ease-in-out;
     height:130px;
 }
 
-
+.nineteen {
+    background: url("img/GermanPoutine.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
 
 .twentyone {
     background: url("img/IceCream.png") center top;
