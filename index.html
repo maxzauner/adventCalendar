@@ -75,6 +75,8 @@
     </ul>
 
 
+    <button class="btnStyle">Choose Style</button>
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
@@ -88,7 +90,7 @@
 
     
     <!-- The Style Chooser -->
-    <div id="chooseStyle" class="modal">
+    <div id="chooseStyle" class="modalStyle">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
         <div class="countdown" style="left:0; width:50%; height:30vh; position:relative; padding-bottom:30%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/6224367" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="d"></iframe></div>
@@ -115,9 +117,6 @@
                 //("li").each($(this).children(".door").addClass("open"));  
             });
 
-            $( ".downloadBtn" ).click(function() {
-
-            });
 
             // Get the modal
             var modal       = document.getElementById("myModal");
@@ -139,7 +138,12 @@
             
             // First time open
             var chooseStyle = document.getElementById("chooseStyle");
+            var btnStyle    = document.getElementById("btnStyle");
 
+            btnStyle.click(function() {
+                chooseStyle.css('display', 'block');
+                modal.style.display = "block";
+            });
 
 
 
