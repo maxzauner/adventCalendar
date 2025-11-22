@@ -86,6 +86,15 @@
         <div id="caption"></div>
     </div>
 
+    
+    <!-- The Style Chooser -->
+    <div id="chooseStyle" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div class="countdown" style="left:0; width:50%; height:30vh; position:relative; padding-bottom:30%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/6224367" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="d"></iframe></div>
+        <div id="caption"></div>
+    </div>
+
 
 
 
@@ -96,9 +105,7 @@
 
 
         $( document ).ready(function() {
-
-
-
+            
             //öffent alle türchen
             $( ".btn" ).click(function() {
                 for(var i=0; i <= 24; i++) {
@@ -108,30 +115,36 @@
                 //("li").each($(this).children(".door").addClass("open"));  
             });
 
-
             $( ".downloadBtn" ).click(function() {
 
             });
 
-
             // Get the modal
-            var modal = document.getElementById("myModal");
+            var modal       = document.getElementById("myModal");
 
             // Get the image and insert it inside the modal - use its "alt" text as a caption
-
-            var modalImg = document.getElementById("img01");
+            var modalImg    = document.getElementById("img01");
             var captionText = document.getElementById("caption");
 
             // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
+            var close        = document.getElementsByClassName("close")[0];
 
             // When the user clicks on <span> (x), close the modal
-            span.onclick = function() { 
+            close.onclick = function() { 
                 modal.style.display = "none";
             }
 
 
+            //===============================================================
+            
+            // First time open
+            var chooseStyle = document.getElementById("chooseStyle");
 
+
+
+
+
+            //===============================================================
 
             var words = [
                         "Until we see each other again", "Netflix Watchparty 🍿", "German christmas cookies 🍪", "🎃", "Supper date", 
@@ -145,159 +158,174 @@
                         ];
 
                         
-          
-
+        
             var message = "";
             var date = new Date();
             var day = date.getDate();
             var month = date.getMonth() + 1;
             var scrolled = false;
             var timeDelay = 200;
+            
+            day = 24;
 
 
-           //day = 24;
-
-            if(month === 12) {
-            // Loop through each calendar window
-                $("li").each( function( index ) {
-                    var adventwindow = index + 1;
-                    var item = $(this);
-
-
-                    // Open past windows
-                    if(adventwindow < day) {
-                        var door = item.children(".door");
-                        door.addClass("open");
-                    }
-                    
-
-                    // timeout offset for past window opening animation
-                    timeDelay += 100;
-
-                    // Add words so far to message variable
-                    if( adventwindow <= day ) {
-
-                        var word = words[index];
-
-                        if(word == undefined || $(this).hasClass("img") || word == "") {
-                            word = "";
-                        } 
-                        else {
-                            $(this).append('<div class="revealed">' + word + '</div>');
-                            message = message + " " + word;
-                        }
-                    }
-
-
-                    // Add jiggle animation to current day window
-                    if(adventwindow === day) {
-                        $(this).addClass("current");
-                        $(this).addClass("jiggle");
-                    }
-
-
-
-
-                    // On clicking a window, toggle it open/closed and
-                    // handle other things such as removing jiggle and 25th
-                    $(this).on("click", function() {
-
-                        var isLoginBtn = $(this).hasClass("btnLogIn");
-                        var isDoorOne = $(this).hasClass("one");
-                        var isMosaik = $(this).hasClass("mosaikDoor");
-
-                        $('.modal-content').css('display', 'block');
-                        $('.countdown').css('display', 'none');
-                        $('.mosaik').css('display', 'none');
-                        
-                        if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open") && !isDoorOne) {
-
-                                      
-                            var bg = $(this).css('background-image');
-                            
-                            var cleanup = /\"|\'|\)/g;
-                            bg = bg.split('/').pop().replace(cleanup, '');
-                            bg = "img/" + bg;
-                            
-                            //console.log(bg);
-
-                            captionText.innerHTML = words[index];
-                            modalImg.src = bg;
-                            modal.style.display = "block";
-
-                            
-                        } else if(isLoginBtn) {
-
-                            var text;
-                            var password = prompt("password:");
-
-                            if (password == null || password == "") {
-                                console.log('Input abgebrochen/leer');
-                            }
-                            else{
-                                if(password == "sube"){
-                                    alert("Approved");
-
-                                    var bg = $(this).css('background-image');
-                                    var cleanup = /\"|\'|\)/g;
-                                    bg = bg.split('/').pop().replace(cleanup, '');
-                                    bg = "img/" + bg;
-                                    
-                                    console.log(bg);
-
-                                    captionText.innerHTML = words[index];
-                                    modalImg.src = bg;
-                                    modal.style.display = "block";
-                                }
-                                else{
-                                    alert("Login failed");
-                                    $(this).removeClass("open");
-                                    document.getElementById("myModal").style.display = "none";
-                                }
-                            }
-                        } else if(isDoorOne) {
-                            $('.countdown').css('display', 'block');                             
-                            captionText.innerHTML = words[index];
-                            modal.style.display = "block";
-                            $('.modal-content').css('display', 'none');
-                        } else if(adventwindow <= day && isMosaik) {
-                            $('.mosaik').css('display', 'block');                             
-                            captionText.innerHTML = words[index];
-                            modal.style.display = "block";
-                            $('.modal-content').css('display', 'none');
-                        }
-
-
-                        if(adventwindow <= day) {
-                            $(this).children(".door").toggleClass("open");
-                            console.log("öffnene");
-                        
-
-
-                    }
-
-                    $(this).removeClass("jiggle");
-
-                    // If 25th, can show the message
-                    if(day >= 25 && adventwindow === 25) {
-                        messageReveal();
-
-                        // Animate scroll to message if not already done
-                        if(!scrolled) {
-                            $('html, body').animate({
-                                scrollTop: $("#message").offset().top
-                            }, 2000);
-                            scrolled = true;
-                        }
-                    }
-                });
-
+            //Testen
+            $( ".downloadBtn" ).click(function() {
+                //Beim ersten Mal öffenen Style auswählen
+                localStorage.setItem("calendarStyle", "cozy");
             });
 
-            // If beyond 24, show message
-            if(day >= 24){
-                messageReveal();
+
+
+            //Style Laden
+            const style = localStorage.getItem("calendarStyle"); 
+            if (style === "cozy") {
+                loadCozyStyle();
+            } else if (style === "funny") {
+                loadFunnyStyle();
             }
+
+
+            if(month === 11) {
+                // Loop through each calendar window
+                    $("li").each( function( index ) {
+                        var adventwindow = index + 1;
+                        var item = $(this);
+
+                        // Open past windows
+                        if(adventwindow < day) {
+                            var door = item.children(".door");
+                            door.addClass("open");
+                        }
+                        
+
+                        // timeout offset for past window opening animation
+                        timeDelay += 100;
+
+                        // Add words so far to message variable
+                        if( adventwindow <= day ) {
+
+                            var word = words[index];
+
+                            if(word == undefined || $(this).hasClass("img") || word == "") {
+                                word = "";
+                            } 
+                            else {
+                                $(this).append('<div class="revealed">' + word + '</div>');
+                                message = message + " " + word;
+                            }
+                        }
+
+
+                        // Add jiggle animation to current day window
+                        if(adventwindow === day) {
+                            $(this).addClass("current");
+                            $(this).addClass("jiggle");
+                        }
+
+
+
+
+                        // On clicking a window, toggle it open/closed and
+                        // handle other things such as removing jiggle and 25th
+                        $(this).on("click", function() {
+
+                            var isLoginBtn = $(this).hasClass("btnLogIn");
+                            var isDoorOne = $(this).hasClass("one");
+                            var isMosaik = $(this).hasClass("mosaikDoor");
+
+                            $('.modal-content').css('display', 'block');
+                            $('.countdown').css('display', 'none');
+                            $('.mosaik').css('display', 'none');
+                            
+                            if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open") && !isDoorOne) {
+
+                                        
+                                var bg = $(this).css('background-image');
+                                
+                                var cleanup = /\"|\'|\)/g;
+                                bg = bg.split('/').pop().replace(cleanup, '');
+                                bg = "img/" + bg;
+                                
+                                //console.log(bg);
+
+                                captionText.innerHTML = words[index];
+                                modalImg.src = bg;
+                                modal.style.display = "block";
+
+                                
+                            } else if(isLoginBtn) {
+
+                                var text;
+                                var password = prompt("password:");
+
+                                if (password == null || password == "") {
+                                    console.log('Input abgebrochen/leer');
+                                }
+                                else{
+                                    if(password == "sube"){
+                                        alert("Approved");
+
+                                        var bg = $(this).css('background-image');
+                                        var cleanup = /\"|\'|\)/g;
+                                        bg = bg.split('/').pop().replace(cleanup, '');
+                                        bg = "img/" + bg;
+                                        
+                                        console.log(bg);
+
+                                        captionText.innerHTML = words[index];
+                                        modalImg.src = bg;
+                                        modal.style.display = "block";
+                                    }
+                                    else{
+                                        alert("Login failed");
+                                        $(this).removeClass("open");
+                                        document.getElementById("myModal").style.display = "none";
+                                    }
+                                }
+                            } else if(isDoorOne) {
+                                $('.countdown').css('display', 'block');                             
+                                captionText.innerHTML = words[index];
+                                modal.style.display = "block";
+                                $('.modal-content').css('display', 'none');
+                            } else if(adventwindow <= day && isMosaik) {
+                                $('.mosaik').css('display', 'block');                             
+                                captionText.innerHTML = words[index];
+                                modal.style.display = "block";
+                                $('.modal-content').css('display', 'none');
+                            }
+
+
+                            if(adventwindow <= day) {
+                                $(this).children(".door").toggleClass("open");
+                                console.log("öffnene");
+                            
+
+
+                        }
+
+                        $(this).removeClass("jiggle");
+
+                        // If 25th, can show the message
+                        if(day >= 25 && adventwindow === 25) {
+                            messageReveal();
+
+                            // Animate scroll to message if not already done
+                            if(!scrolled) {
+                                $('html, body').animate({
+                                    scrollTop: $("#message").offset().top
+                                }, 2000);
+                                scrolled = true;
+                            }
+                        }
+                    });
+
+                });
+
+                // If beyond 24, show message
+                if(day >= 24){
+                    messageReveal();
+                }
 
             }
 
