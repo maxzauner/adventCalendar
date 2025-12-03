@@ -78,8 +78,8 @@ transition: all 0.4s ease-in-out;
 
 
 
-.two {
-    background: url("img/NetflixDate.png") center top;
+.one {
+    background: url("img/1_VoucherChristmasMarket.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -87,8 +87,8 @@ transition: all 0.4s ease-in-out;
     height:130px;
 }
 
-.three {
-    background: url("img/Vanillekipferl.png") center top;
+.two {
+    background: url("img/2_Caring.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -97,8 +97,8 @@ transition: all 0.4s ease-in-out;
 }
 
 
-.four {
-    background: url("img/Meme01.png") center top;
+.three {
+    background: url("img/3_Door.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -106,8 +106,8 @@ transition: all 0.4s ease-in-out;
     height:130px;
 }
 
-.five {
-    background: url("img/supperDate.png") center top;
+.four {
+    background: url("img/4_Cuddly.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -116,7 +116,17 @@ transition: all 0.4s ease-in-out;
 }
 
 .six {
-    background: url("img/Nikolaus.png") center top;
+    background: url("img/6_Nikolaus.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
+
+.seven {
+    background: url("img/7_Animal.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -125,13 +135,33 @@ transition: all 0.4s ease-in-out;
 }
 
 .eight {
-    background: url("img/Canada.png") center top;
+    background: url("img/8_Door.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
     width: 130px;
     height:130px;
 }
+
+
+.nine {
+    background: url("img/9_Food.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
+.ten {
+    background: url("img/10_Mojito.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
 
 
 
@@ -148,7 +178,7 @@ transition: all 0.4s ease-in-out;
 
 
 .twelve {
-    background: url("img/HiddenGames.jpg") center top;
+    background: url("img/12_canadian.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -158,7 +188,7 @@ transition: all 0.4s ease-in-out;
 
 
 .fourteen {
-    background: url("img/Places.png") center top;
+    background: url("img/14_cute.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -166,21 +196,19 @@ transition: all 0.4s ease-in-out;
     height:130px;
 }
 
-/*
+
 .fifeteen {
-    background: url("img/cartoon2.png") center top;
+    background: url("img/15_adventure.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
     width: 130px;
     height:130px;
 }
-
-*/
 
 
 .seventeen {
-    background: url("img/Poem.png") center top;
+    background: url("img/17_figjam.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -189,7 +217,7 @@ transition: all 0.4s ease-in-out;
 }
 
 .eightteen {
-    background: url("img/Meme02.png") center top;
+    background: url("img/18_traveller.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -198,7 +226,7 @@ transition: all 0.4s ease-in-out;
 }
 
 .nineteen {
-    background: url("img/GermanPoutine.png") center top;
+    background: url("img/19_thing.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -207,7 +235,7 @@ transition: all 0.4s ease-in-out;
 }
 
 .twentyone {
-    background: url("img/IceCream.png") center top;
+    background: url("img/21_allIn.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -236,7 +264,7 @@ transition: all 0.4s ease-in-out;
 
 
 ul li:last-child {
-background: url("img/Christmas.png") center top;
+background: url("img/24_christmas.png") center top;
 background-size:cover;  
 display:block;
 clear:both;
@@ -369,7 +397,7 @@ li {
 #myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
-.modal {
+.modalClass {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */

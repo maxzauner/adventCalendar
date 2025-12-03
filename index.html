@@ -28,7 +28,7 @@
     <ul>
 
         
-    <li class="one"><div class="door">1</div></li>
+    <li class="img one"><div class="door">1</div></li>
     <li class="img two"><div class="door">2</div></li>
     <li class="img three"><div class="door">3</div></li>
 
@@ -36,31 +36,31 @@
 
 
     <li class="img four"><div class="door">4</div></li>
-    <li class="img five"><div class="door">5</div></li>
+    <li class="five"><div class="door">5</div></li>
 
 
     <li class="img six"><div class="door">6</div></li>
-    <li class="seven"><div class="door 7">7</div></li>
-    <li class="img eight"><div class="door 8">8</div></li>
-    <li class="nine"><div class="door">9</div></li>
-    <li class="ten"><div class="door">10</div>
-        <div style="font-size: 19.5px;" class="revealed">
-            To get ready for german christmas
-            <a style="color: #F8B229;" target="_blank" href="https://open.spotify.com/playlist/5SRTxUBKTTSXbGYQC5uqkd?si=028aff3c6e6b4723" title=""> 🎶 </a>
-        </div>
-    </li>
+    <li class="img seven"><div class="door 7">7</div></li>
+
+
+    <li class="btnLogIn img eight" id="0"><div class="door 8">8</div></li>
+
+
+    <li class="img nine"><div class="door">9</div></li>
+
+
+
+    
+    <li class="img ten"><div class="door">10</div> </li>
     <li class="img eleven"><div class="door">11</div></li>
 
-    <li class="btnLogIn twelve"><div class="door">12</div></li>
+    <li class="img twelve" id="0"><div class="door">12</div></li>
 
-    <li class="mosaikDoor"><div class="door">13</div></li>
+    <li class="btnLogIn img thirteen"><div class="door 13">13</div></li>
     <li class="img fourteen"><div class="door 14">14</div></li>
 
-    <li class="fifeteen">
+    <li class="img fifeteen">
         <div class="door">15</div>
-        <div style="font-size: 19.5px;" class="revealed">
-            <a style="color: #F8B229;" target="_blank" href="https://www.jigsawplanet.com/?rc=play&pid=3dfe53a43657" title="TV-Abend">Puzzle 🧩</a>
-        </div>
     </li>
 
     <li class="sixteen"><div class="door">16</div></li>
@@ -75,36 +75,40 @@
     </ul>
 
 
-    <button class="btnStyle">Choose Style</button>
+    <button type="button" id="btnStyle">Choose Theme</button>
+    <button type="button" id="showTheme">Show them</button>
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modalClass">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
         <div class="mosaik">
             <br><iframe src="https://mosaically.com/embed/0ca94b63-a986-481a-85b5-c4f16582967a" scrolling="no" width="100%" height="700" frameBorder="0" allowfullscreen></iframe><!--REMOVING THE FOLLOWING CREDIT IS A VIOLATION OF YOUR TERMS OF USE--><br><small><a href="https://mosaically.com/maxza"></a> <a href="https://mosaically.com"></a></small>
         </div>
+        <!--
+
         <div class="countdown" style="left:0; width:50%; height:30vh; position:relative; padding-bottom:30%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/6224367" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="d"></iframe></div>
+               -->
         <div id="caption"></div>
     </div>
 
     
     <!-- The Style Chooser -->
-    <div id="chooseStyle" class="modalStyle">
+    <div id="chooseTheme" class="modalClass">
         <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div class="countdown" style="left:0; width:50%; height:30vh; position:relative; padding-bottom:30%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/6224367" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="d"></iframe></div>
-        <div id="caption"></div>
+        <!--<img class="modal-content" id="img01">-->
+        <div id="caption">Hallooo</div>
+        <ul>
+            <li id="cozyTheme">Cozy</li>
+            <li id="winterTheme">Game Theme</li>
+            <li id="sexyTheme">Sexy Theme</li>
+            <li style="display: none;" id=""></li>
+        </ul>
     </div>
 
 
 
-
     <script>
-
-
-
-
 
         $( document ).ready(function() {
             
@@ -137,28 +141,67 @@
             //===============================================================
             
             // First time open
-            var chooseStyle = document.getElementById("chooseStyle");
-            var btnStyle    = document.getElementById("btnStyle");
+            var chooseThemeWindow   = document.getElementById("chooseTheme");
+            var btnChooseTheme      = document.getElementById("btnStyle");
+            
+            //Theme
+            var btnThemeCozy   = document.getElementById("cozyTheme");
+            var btnThemewinter = document.getElementById("winterTheme");
+            var btnThemeSexy   = document.getElementById("sexyTheme");
+            
+            var btnShowStyle   = document.getElementById("showTheme");
 
-            btnStyle.click(function() {
-                chooseStyle.css('display', 'block');
-                modal.style.display = "block";
-            });
+            //Open window to choose style
+            btnChooseTheme.onclick = function() {
+                chooseThemeWindow.style.display = "block";
+            }
 
+            btnThemeCozy.onclick = function() {
+                localStorage.setItem("calendarStyle", "cozy");
+                chooseThemeWindow.style.display = "none";
+            }
 
+            btnThemewinter.onclick = function() {
+                localStorage.setItem("calendarStyle", "winter");
+                chooseThemeWindow.style.display = "none";
+            }
 
+            
+            btnThemeSexy.onclick = function() {
+                localStorage.setItem("calendarStyle", "sexy");
+                chooseThemeWindow.style.display = "none";
+            }
+
+            
+            //Show current style
+            btnShowStyle.onclick = function() {
+                var passwordString = $(this).attr('id');
+                var paswordInt = parseInt(passwordString, 10);
+
+                //alert(localStorage.getItem("calendarStyle"));
+                alert(passwordString);
+            }
+
+            //Style Laden
+            const style = localStorage.getItem("calendarStyle"); 
+            if (style === "cozy") {
+                //loadCozyStyle();
+            } else if (style === "funny") {
+                //loadFunnyStyle();
+            }
+            
 
             //===============================================================
 
             var words = [
-                        "Until we see each other again", "Netflix Watchparty 🍿", "German christmas cookies 🍪", "🎃", "Supper date", 
-                        "Happy Nikolaus Tag 🎅", "Special Candle ;)", 
-                        "🇩🇪/🇨🇦", "Voucher: Sexy Pic 😉", 
-                        "", "Quiz ✍️", "Game date night 🕵️", 
-                        "📷", "Our places 🌏❤️", "", "Ask me on Whatsapp for it ;)", 
-                        "Pour ma belle blonde", 
-                        "", "German Poutine 🍟", "Dices 🔥🎲", 
-                        "🍨", "Something to get you over the 97% ;)", "", "Frohe Weihnachten ❤️"
+                        "Christmas market Voucher", "I love you because youre caring", "Naomies christmas adventure game", "I love you because youre cuddly", "big Candybox is waiting for you ;)", 
+                        "Happy Nikolaus Tag 🎅", "I love you because youre an animal lover", 
+                        "The trail", "I love you because you love eating ;)", 
+                        "Christmas Mojito", "Bath bomb", "I love you because youre canadian", 
+                        "📷", "I love you because youre cute", "I love you because youre adventurous", "Guess game", 
+                        "Fig jam", 
+                        "I love you because youre a traveller", "I love you because you do things with me", "Little gadget for us ;)", 
+                        "I love you because youre all in", "Gift for both of us ;)", "German cookies", "Frohe Weihnachten ❤️"
                         ];
 
                         
@@ -173,24 +216,9 @@
             day = 24;
 
 
-            //Testen
-            $( ".downloadBtn" ).click(function() {
-                //Beim ersten Mal öffenen Style auswählen
-                localStorage.setItem("calendarStyle", "cozy");
-            });
 
 
-
-            //Style Laden
-            const style = localStorage.getItem("calendarStyle"); 
-            if (style === "cozy") {
-                loadCozyStyle();
-            } else if (style === "funny") {
-                loadFunnyStyle();
-            }
-
-
-            if(month === 11) {
+            if(month === 12) {
                 // Loop through each calendar window
                     $("li").each( function( index ) {
                         var adventwindow = index + 1;
@@ -242,7 +270,7 @@
                             $('.countdown').css('display', 'none');
                             $('.mosaik').css('display', 'none');
                             
-                            if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open") && !isDoorOne) {
+                            if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open")) {
 
                                         
                                 var bg = $(this).css('background-image');
@@ -259,15 +287,25 @@
 
                                 
                             } else if(isLoginBtn) {
+                                var passwordString = $(this).attr('id');
+                                var paswordInt = parseInt(passwordString, 10);
+                                var passwords = [
+                                    "test", "abc", "ddd", "b", "Supper"
+                                    ];
+
 
                                 var text;
-                                var password = prompt("password:");
+                                var password = prompt("Solution of the last riddle?:");
 
                                 if (password == null || password == "") {
                                     console.log('Input abgebrochen/leer');
                                 }
+
+
                                 else{
-                                    if(password == "sube"){
+                                    //if(password == "sube"){
+                                    if(password == passwords[paswordInt]){
+                                    //testen
                                         alert("Approved");
 
                                         var bg = $(this).css('background-image');
@@ -287,17 +325,19 @@
                                         document.getElementById("myModal").style.display = "none";
                                     }
                                 }
-                            } else if(isDoorOne) {
+                            } /*else if(isDoorOne) {
+                                
                                 $('.countdown').css('display', 'block');                             
                                 captionText.innerHTML = words[index];
                                 modal.style.display = "block";
                                 $('.modal-content').css('display', 'none');
+                                
                             } else if(adventwindow <= day && isMosaik) {
                                 $('.mosaik').css('display', 'block');                             
                                 captionText.innerHTML = words[index];
                                 modal.style.display = "block";
                                 $('.modal-content').css('display', 'none');
-                            }
+                            }*/
 
 
                             if(adventwindow <= day) {
@@ -312,8 +352,7 @@
 
                         // If 25th, can show the message
                         if(day >= 25 && adventwindow === 25) {
-                            messageReveal();
-
+                            //messageReveal();
                             // Animate scroll to message if not already done
                             if(!scrolled) {
                                 $('html, body').animate({
@@ -328,12 +367,15 @@
 
                 // If beyond 24, show message
                 if(day >= 24){
-                    messageReveal();
+                    //messageReveal();
+                    //alert("hi");
                 }
 
             }
 
         });
+
+
         
 
     </script>
