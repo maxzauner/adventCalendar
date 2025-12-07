@@ -56,7 +56,7 @@
 
     <li class="img twelve" id="0"><div class="door">12</div></li>
 
-    <li class="btnLogIn img thirteen"><div class="door 13">13</div></li>
+    <li class="btnLogIn img thirteen" id="1"><div class="door 13">13</div></li>
     <li class="img fourteen"><div class="door 14">14</div></li>
 
     <li class="img fifeteen">
@@ -79,9 +79,7 @@
     <div id="myModal" class="modalClass">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
-        <div class="mosaik">
-            <br><iframe src="https://mosaically.com/embed/0ca94b63-a986-481a-85b5-c4f16582967a" scrolling="no" width="100%" height="700" frameBorder="0" allowfullscreen></iframe><!--REMOVING THE FOLLOWING CREDIT IS A VIOLATION OF YOUR TERMS OF USE--><br><small><a href="https://mosaically.com/maxza"></a> <a href="https://mosaically.com"></a></small>
-        </div>
+
         <!--
 
         <div class="countdown" style="left:0; width:50%; height:30vh; position:relative; padding-bottom:30%; margin:0 auto"><iframe src="https://www.tickcounter.com/widget/countdown/6224367" style="top:0; left:0; width:100%; height:100%; position:absolute; border:0; overflow:hidden" title="d"></iframe></div>
@@ -209,7 +207,6 @@
             var month = date.getMonth() + 1;
             var scrolled = false;
             var timeDelay = 200;
-            
             //day = 24;
 
 
@@ -220,6 +217,7 @@
                     $("li").each( function( index ) {
                         var adventwindow = index + 1;
                         var item = $(this);
+
 
                         // Open past windows
                         if(adventwindow < day) {
@@ -258,16 +256,16 @@
                         // On clicking a window, toggle it open/closed and
                         // handle other things such as removing jiggle and 25th
                         $(this).on("click", function() {
-
+                            var logInSuccessful = false;
                             var isLoginBtn = $(this).hasClass("btnLogIn");
                             var isDoorOne = $(this).hasClass("one");
-                            var isMosaik = $(this).hasClass("mosaikDoor");
+                            //var isMosaik = $(this).hasClass("mosaikDoor");
 
                             $('.modal-content').css('display', 'block');
-                            $('.countdown').css('display', 'none');
-                            $('.mosaik').css('display', 'none');
+                            //$('.countdown').css('display', 'none');
+                            //$('.mosaik').css('display', 'none');
                             
-                            if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open")) {
+                            if (adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open") && !isLoginBtn) {
 
                                         
                                 var bg = $(this).css('background-image');
@@ -279,16 +277,19 @@
                                 //console.log(bg);
 
                                 captionText.innerHTML = words[index];
+                                
+
                                 modalImg.src = bg;
                                 modal.style.display = "block";
 
                                 
-                            } else if(isLoginBtn) {
+                            } else if(adventwindow <= day && $(this).hasClass("img") && !$(this).children(".door").hasClass("open") && isLoginBtn) {
                                 var passwordString = $(this).attr('id');
                                 var paswordInt = parseInt(passwordString, 10);
                                 var passwords = [
-                                    "test", "abc", "ddd", "b", "Supper"
+                                    "star", "gym", "ddd", "b", "Supper"
                                     ];
+                                //alert("Passwort: " + passwords[paswordInt]);
 
 
                                 var text;
@@ -297,14 +298,12 @@
                                 if (password == null || password == "") {
                                     console.log('Input abgebrochen/leer');
                                 }
-
-
                                 else{
                                     //if(password == "sube"){
                                     if(password == passwords[paswordInt]){
                                     //testen
                                         alert("Approved");
-
+                                       logInSuccessful = true;
                                         var bg = $(this).css('background-image');
                                         var cleanup = /\"|\'|\)/g;
                                         bg = bg.split('/').pop().replace(cleanup, '');
