@@ -255,6 +255,17 @@ transition: all 0.4s ease-in-out;
     height:130px;
 }
 
+
+.twentyone {
+    background: url("img/20_story5") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
+
 .twentyone {
     background: url("img/21_allIn.png") center top;
     background-size:cover;  
