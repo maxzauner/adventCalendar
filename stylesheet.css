@@ -166,7 +166,7 @@ transition: all 0.4s ease-in-out;
 
 
 .eleven {
-    background: url("img/Crossword.png") center top;
+    background: url("img/11_bathbomb.jpg") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -179,6 +179,16 @@ transition: all 0.4s ease-in-out;
 
 .twelve {
     background: url("img/12_canadian.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
+
+.thirteen {
+    background: url("img/13_story3.png") center top;
     background-size:cover;  
     clear:both;
     margin: 20px auto 0 auto;
@@ -205,6 +215,17 @@ transition: all 0.4s ease-in-out;
     width: 130px;
     height:130px;
 }
+
+
+.sixteen {
+    background: url("img/16_story4.png") center top;
+    background-size:cover;  
+    clear:both;
+    margin: 20px auto 0 auto;
+    width: 130px;
+    height:130px;
+}
+
 
 
 .seventeen {
